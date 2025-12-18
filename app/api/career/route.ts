@@ -44,7 +44,7 @@ export async function POST(request: Request) {
       from: fromEmail,
       to: toEmail,
       subject: `New career application: ${name} – ${role}`,
-      reply_to: email || undefined,
+      replyTo: email || undefined,
       html: `
         <h2>New career application from the website</h2>
         <p><strong>Name:</strong> ${name}</p>
