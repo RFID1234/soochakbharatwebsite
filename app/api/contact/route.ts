@@ -30,7 +30,7 @@ export async function POST(request: Request) {
       from: fromEmail,
       to: toEmail,
       subject: `New website enquiry: ${subject}`,
-      reply_to: email,
+      replyTo: email,
       html: `
         <h2>New enquiry from the website</h2>
         <p><strong>Name:</strong> ${name}</p>
