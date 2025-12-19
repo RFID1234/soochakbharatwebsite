@@ -56,6 +56,11 @@ const productFamilies: Record<string, ProductFamily> = {
         file: 'Multiprotocol UHF RFID Module _SBM-U25.pdf',
         image: '/datasheets/RFID Module/SBM-U25.PNG',
       },
+      {
+        name: 'RFID Tags – Soochak Bharat',
+        file: 'RFID TAGS Soochak Bharat.pdf',
+        image: '/datasheets/RFID Module/RFID TAGS Soochak Bharat.png',
+      },
     ],
   },
   'handheld-rfid-readers': {

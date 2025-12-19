@@ -65,12 +65,6 @@ const solutionLinkMap: Record<string, string> = {
 
 const products = [
   {
-    id: 'rfid-tags',
-    title: 'RFID Tags',
-    description: 'Reliable and durable tags for seamless <b>tracking, identification, and asset management.</b>',
-    image: '/Product_Soochak (1)/11.png',
-  },
-  {
     id: 'handheld-rfid-readers',
     title: 'Handheld RFID Readers',
     description: 'Portable and efficient readers for <b>quick, accurate, and on-the-go RFID scanning.</b>',
@@ -87,6 +81,12 @@ const products = [
     title: 'Integrated RFID Readers',
     description: 'Advanced all-in-one solutions for <b>seamless RFID integration and smart operations.</b>',
     image: '/Product_Soochak (1)/Integrated rfid reader.jpg',
+  },
+  {
+    id: 'rfid-tags',
+    title: 'RFID Tags',
+    description: 'Reliable and durable tags for seamless <b>tracking, identification, and asset management.</b>',
+    image: '/Product_Soochak (1)/11.png',
   },
   {
     id: 'rfid-tokens-wristbands',

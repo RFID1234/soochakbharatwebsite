@@ -35,10 +35,10 @@ export default function Header() {
   ]
 
   const products = [
-    'RFID Tags',
     'Handheld RFID Readers',
     'Fixed RFID Readers',
     'Integrated RFID Readers',
+    'RFID Tags',
     'RFID Tokens/Wristbands',
     'RFID Antennas',
     'Desktop RFID Readers',
