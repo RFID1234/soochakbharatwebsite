@@ -139,8 +139,47 @@ const productLinkMap: Record<string, string> = {
   'nfc-chips': '/products/nfc-chips',
 }
 
+const testimonials = [
+  {
+    name: 'Rajesh Sharma',
+    feedback:
+      "Soochak Bharat's RFID solution greatly improved our operational efficiency. Implementation was smooth, and their technical support has been reliable and responsive.",
+  },
+  {
+    name: 'Anita Verma',
+    feedback:
+      'The product authentication system helped us eliminate counterfeit issues. Simple for customers to use and extremely effective for brand protection.',
+  },
+  {
+    name: 'Amit Kulkarni',
+    feedback:
+      'Inventory accuracy and dispatch speed improved significantly after RFID implementation. The system works flawlessly even during peak operational hours.',
+  },
+  {
+    name: 'Neha Gupta',
+    feedback:
+      'Their centralized attendance system brought transparency across all school branches. Data accuracy and reporting have improved remarkably.',
+  },
+  {
+    name: 'Sandeep Iyer',
+    feedback:
+      'Professional team with strong technical knowledge. The RFID file management system reduced manual errors and saved considerable administrative time.',
+  },
+  {
+    name: 'Pooja Mehta',
+    feedback:
+      'NFC-based verification added a strong trust layer for our products. Customers can now easily authenticate authenticity using their smartphones.',
+  },
+  {
+    name: 'Rohit Malhotra',
+    feedback:
+      'From planning to deployment, the execution was well-organized. The solution scaled smoothly as our operational requirements grew.',
+  },
+]
+
 export default function Home() {
   const [currentSlider, setCurrentSlider] = useState(0)
+  const [currentTestimonialSlide, setCurrentTestimonialSlide] = useState(0)
 
   // Auto-rotate hero slider
   useEffect(() => {
@@ -149,6 +188,16 @@ export default function Home() {
     }, 5000)
     return () => clearInterval(interval)
   }, [])
+
+  const testimonialsPerSlide = 3
+  const totalTestimonialSlides = Math.ceil(testimonials.length / testimonialsPerSlide)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTestimonialSlide((prev) => (prev + 1) % totalTestimonialSlides)
+    }, 4000)
+    return () => clearInterval(interval)
+  }, [totalTestimonialSlides])
 
   return (
     <div className="min-h-screen">
@@ -485,6 +534,57 @@ export default function Home() {
               ))}
             </div>
           )}
+        </div>
+      </section>
+
+      {/* Our Valuable Customers */}
+      <section className="bg-gradient-to-b from-white to-gray-100 py-16">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-900">
+            Our Valuable Customers
+          </h2>
+          <p className="text-center text-gray-600 max-w-3xl mx-auto mb-12">
+            A glimpse of what our customers say about working with Soochak Bharat on RFID, NFC, and
+            automation projects.
+          </p>
+
+          {/* Carousel of 3 feedbacks at a time */}
+          <div className="relative">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {testimonials
+                .slice(
+                  currentTestimonialSlide * testimonialsPerSlide,
+                  currentTestimonialSlide * testimonialsPerSlide + testimonialsPerSlide,
+                )
+                .map((t, index) => (
+                  <div
+                    key={`${currentTestimonialSlide}-${index}`}
+                    className="relative bg-white rounded-2xl shadow-md p-6 pt-8 flex flex-col h-full border border-gray-100"
+                  >
+                    <span className="absolute -top-4 left-6 text-5xl text-blue-100 select-none">“</span>
+                    <p className="text-gray-700 text-sm mb-4 leading-relaxed mt-2">{t.feedback}</p>
+                    <div className="mt-auto pt-2 border-t border-gray-100">
+                      <p className="text-sm font-semibold text-[#1e3a8a]">{t.name}</p>
+                    </div>
+                  </div>
+                ))}
+            </div>
+
+            {/* Carousel controls */}
+            <div className="mt-8 flex items-center justify-center gap-3">
+              {Array.from({ length: totalTestimonialSlides }).map((_, index) => (
+                <button
+                  key={index}
+                  type="button"
+                  onClick={() => setCurrentTestimonialSlide(index)}
+                  className={`h-2.5 rounded-full transition-all ${
+                    index === currentTestimonialSlide ? 'w-6 bg-[#1e3a8a]' : 'w-2.5 bg-gray-300 hover:bg-gray-400'
+                  }`}
+                  aria-label={`Go to testimonials slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
