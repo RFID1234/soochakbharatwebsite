@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Your Gemstone - Soochak Bharat Labs</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Landing Page Specific Styles */
+        .landing-container {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .landing-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .landing-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        .search-box-large {
+            width: 100%;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            padding: 1rem;
+            border-radius: 50px;
+            box-shadow:
+                0 20px 40px rgba(0, 0, 0, 0.05),
+                inset 0 1px 1px rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .search-box-large:hover,
+        .search-box-large:focus-within {
+            transform: translateY(-2px);
+            box-shadow:
+                0 30px 60px rgba(37, 99, 235, 0.15),
+                inset 0 1px 1px rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .search-box-large input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            padding: 1rem 1.5rem;
+            font-size: 1.2rem;
+            color: var(--text-main);
+            outline: none;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .search-box-large .search-btn-large {
+            background: linear-gradient(135deg, #3b82f6, #0f172a);
+            color: white;
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            font-size: 1.2rem;
+        }
+
+        .search-box-large .search-btn-large:hover {
+            transform: scale(1.05) rotate(10deg);
+        }
+
+        .trust-badges {
+            margin-top: 4rem;
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            opacity: 0.8;
+        }
+
+        .trust-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+        }
+
+        .trust-item i {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+        }
+
+        .trust-item span {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .landing-title {
+                font-size: 2.5rem;
+            }
+
+            .search-box-large {
+                padding: 0.5rem;
+            }
+
+            .search-box-large .search-btn-large {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-globes">
+        <div class="globe globe-1"></div>
+        <div class="globe globe-2"></div>
+        <div class="globe globe-3"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-left">
+            <img src="assets/logo.png" alt="Soochak Bharat Labs Logo" class="logo">
+        </div>
+        <div class="nav-center">
+            <h1 class="company-name">Soochak Bharat Labs</h1>
+        </div>
+        <div class="nav-right">
+            <!-- Search bar removed from header on landing page -->
+            <a href="https://ruby.glintexim.com" target="_blank" class="shop-btn">
+                <i class="fas fa-shopping-cart"></i> Shop Now
+            </a>
+        </div>
+    </nav>
+
+    <div class="landing-container">
+        <h1 class="landing-title">Verify Your Gemstone</h1>
+        <p class="landing-subtitle">Enter your report number below to view the complete certification details and
+            authenticity proof of your gemstone.</p>
+
+        <div class="search-box-large">
+            <input type="text" id="landingSearchInput" placeholder="Enter Report No." autocomplete="off">
+            <button class="search-btn-large" onclick="handleLandingSearch()">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+
+        <div class="trust-badges">
+            <div class="trust-item">
+                <i class="fas fa-shield-alt"></i>
+                <span>100% Authentic</span>
+            </div>
+            <div class="trust-item">
+                <i class="fas fa-microscope"></i>
+                <span>Lab Tested</span>
+            </div>
+            <div class="trust-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Verified</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Landing page specific logic
+        function handleLandingSearch() {
+            const input = document.getElementById('landingSearchInput');
+            const reportNumber = input.value.trim().toUpperCase();
+
+            if (!reportNumber) {
+                alert('Please enter a report number');
+                return;
+            }
+
+            if (!reportNumber.startsWith('SBLB')) {
+                alert('Please enter a valid report number starting with SBLB');
+                return;
+            }
+
+            // Redirect to the report page
+            window.location.href = `report.html?report=${reportNumber}`;
+        }
+
+        // Enter key support
+        document.getElementById('landingSearchInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                handleLandingSearch();
+            }
+        });
+
+        // Focus input on load
+        window.onload = function () {
+            document.getElementById('landingSearchInput').focus();
+        };
+    </script>
+</body>
+
+</html>
